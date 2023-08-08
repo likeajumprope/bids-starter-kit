@@ -1,4 +1,4 @@
-# BIDS folders
+# Folders
 
 The BIDS format is essentially a way to structure your data / metadata within a
 hierarchy of folders. This makes it easy to browse from a computer, as well as
@@ -6,16 +6,10 @@ to automatically parse a BIDS folder with a program. The BIDS structure makes
 minimal assumptions about the tools needed to interact with the data that's
 inside.
 
-These are the three main types of files you'll find in a BIDS dataset:
+The files in present in BIDS dataset are organized into a hierarchy of folders
+that have specific naming conventions.
 
-1. `.json` files that contain `key: value` metadata
-2. `.tsv` files that contain tables of metadata
-3. Raw data files (for example: `.jpg` files for images or `.nii.gz` files for
-   fMRI data.)
-
-These three types of files are organized into a hierarchy of folders that have
-specific naming conventions. The rest of this page describes how these folders
-are structured.
+The rest of this page describes how these folders are structured.
 
 ## Overview
 
@@ -57,26 +51,108 @@ subject.
 
 Structure: `ses-<session label>`
 
-Represents a recording session. You might have multiple sessions per subject if
-you collected data from them on different days. If there is only a single
-session per subject, this level of the hierarchy may be omitted.
+In general, a `session` represents a recording session, and subjects will
+stay in the scanner or headset during that session. You might have multiple
+sessions per subject if you collected data from them on several occasions.
+If there is only a single session per subject, this level of the hierarchy
+may be omitted.
+
+For more details, refer to this {ref}`section of the FAQ <faq_session>`.
 
 ## datatype
 
 Represents different types of data. Must be one of:
 
--   `func `
--   `dwi`
--   `fmap`
--   `anat`
--   `meg`
--   `eeg`
--   `ieeg`
--   `beh`
--   `pet`
--   `micr`
+-   `anat`: anatomical MRI data
+-   `func`: functional MRI data
+-   `fmap`: fieldmap data
+-   `dwi`: diffusion MRI data
+-   `perf`: arterial spin labeling data
+-   `eeg`: electroencephalography data
+-   `meg`: magnetoencephalography data
+-   `ieeg`: intracranial EEG data
+-   `beh`: behavioral data
+-   `pet`: positron emission tomography data
+-   `micr`: microscopy data
+-   `nirs`: near-infrared spectroscopy data
+-   `motion`: motion capture data
 
 The name for the datatype depends on the recording modality.
+
+<!-- https://www.tablesgenerator.com/html_tables# -->
+
+<div align="center">
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-mri{border-color:#000000;color:var(--mri);font-size:18px; text-align:center;vertical-align:middle}
+.tg .tg-micr{border-color:#000000;color:var(--micr);font-size:18px; text-align:center;vertical-align:middle}
+.tg .tg-pet{border-color:#000000;color:var(--pet);font-size:18px; text-align:center;vertical-align:middle}
+.tg .tg-meeg{border-color:#000000;color:var(--meeg);font-size:18px;text-align:center;vertical-align:middle}
+.tg .tg-beh{border-color:#000000;color:var(--beh);font-size:18px; text-align:center;vertical-align:middle}
+.tg .tg-nirs{border-color:#000000;color:var(--nirs);font-size:18px; text-align:center;vertical-align:middle}
+.tg .tg-motion{border-color:#000000;color:var(--motion);font-size:18px; text-align:center;vertical-align:middle}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-va6w"></th>
+    <th class="tg-xuqq" colspan="7"><span style="font-weight:bold"><b>modality</b></span></th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-xuqq" rowspan="5"><span style="font-weight:bold"><b>datatype</b></span></td>
+    <td class="tg-mri"><b>MRI</b></td>
+    <td class="tg-pet"><b>PET</b></td>
+    <td class="tg-meeg"><span style="font-style:normal;text-decoration:none"><b>meeg</b></span></td>
+    <td class="tg-beh"><b>behavioral</b></td>
+    <td class="tg-micr"><b>microscopy</b></td>
+    <td class="tg-nirs"><b>NIRS</b></td>
+    <td class="tg-motion"><b>motion</b></td>
+  </tr>
+  <tr>
+    <td class="tg-mri">anat</td>
+    <td class="tg-pet">pet</td>
+    <td class="tg-meeg">eeg</td>
+    <td class="tg-beh">beh</td>
+    <td class="tg-micr">micr</td>
+    <td class="tg-nirs">nirs</td>
+    <td class="tg-motion">motion</td>
+  </tr>
+  <tr>
+    <td class="tg-mri">func<br></td>
+    <td class="tg-pet"></td>
+    <td class="tg-meeg">meg</td>
+    <td class="tg-beh"></td>
+    <td class="tg-micr"></td>
+    <td class="tg-micr"></td>
+    <td class="tg-motion"></td>
+  </tr>
+  <tr>
+    <td class="tg-mri">dwi</td>
+    <td class="tg-pet"></td>
+    <td class="tg-meeg">ieeg</td>
+    <td class="tg-beh"></td>
+    <td class="tg-micr"></td>
+    <td class="tg-micr"></td>
+    <td class="tg-motion"></td>
+  </tr>
+  <tr>
+    <td class="tg-mri">perf</td>
+    <td class="tg-pet"></td>
+    <td class="tg-meeg"></td>
+    <td class="tg-beh"></td>
+    <td class="tg-micr"></td>
+    <td class="tg-micr"></td>
+    <td class="tg-motion"></td>
+  </tr>
+</tbody>
+</table>
+</div>
 
 ## BIDS folder example
 
@@ -117,23 +193,3 @@ ds001
 ...
 └── task-balloonanalogrisktask_bold.json
 ```
-
-## Creating a BIDS folder hierarchy
-
-Next we'll step through a sample process one might follow when creating a BIDS
-hierarchy for a new dataset.
-
-### Create the folder hierarchy and top-level metadata file
-
-First we'll create the folder hierarchy to be used in this format.
-
--   Create the top-level project folder (`myProject/`)
--   Create a top-level metadata files (`myProject/participants.tsv` and
-    `myProject/task-mytask.json`)
-
-### Create a subject's folder
-
-Next we'll add the folder hierarchy for one subject:
-
--   Create the `<Project>/<Subject>/<Session>/` folder
-    (`myProject/sub-01/ses-01/`)

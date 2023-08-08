@@ -53,12 +53,8 @@ jupyter:
   </h4>
 </div>
 
-<h2 align="center"> <i class='fa fa-youtube'></i> Click to view our youtube playlist! <i class="fa fa-youtube"></i> </h2>
-
-<div align="center">
+<div class="iframe-container">
   <iframe
-    width="560"
-    height="315"
     src="https://www.youtube.com/embed/-c4PUhTwmz4"
     title="YouTube video player"
     frameborder="0"
@@ -107,6 +103,10 @@ will be shared and the more powerful it will become. <strong>We want to make it
 easy to learn</strong> and more adopted. Since BIDS is platform independent and
 still an adapting, growing tool, the greater the community, the better it will
 be.
+
+Another part is that BIDS is striving to not reinventing other standards and metadata ontologies but reuse them:
+
+![BIDS-minder](./images/BIDS-minder.svg)
 
 ## Benefits
 

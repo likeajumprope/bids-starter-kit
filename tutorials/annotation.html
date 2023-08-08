@@ -22,45 +22,58 @@
       
 
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/myfile.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/js/treeData.js"></script>
+    <script src="../_static/js/treeFunctions.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="iEEG data conversion" href="ieeg.html" />
-    <link rel="prev" title="BIDS Derivatives" href="../folders_and_files/derivatives.html" />
+    <link rel="prev" title="Derivatives" href="../folders_and_files/derivatives.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
     
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-VZJHGNQV6D"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-VZJHGNQV6D');
+                </script>
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -76,6 +89,11 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/BIDS_logo_black_transparent_background_crop.png" class="logo" alt="logo">
       
       
       <h1 class="site-logo" id="site-title">BIDS starter kit</h1>
@@ -93,7 +111,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Folders and files
  </span>
@@ -101,17 +119,17 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../folders_and_files/folders.html">
-   BIDS folders
+   Folders
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../folders_and_files/files.html">
-   BIDS filenames
+   Filenames
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../folders_and_files/metadata.html">
-   BIDS metadata and file formats
+   Metadata and file formats
   </a>
  </li>
  <li class="toctree-l1">
@@ -121,11 +139,11 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../folders_and_files/derivatives.html">
-   BIDS Derivatives
+   Derivatives
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Tutorials
  </span>
@@ -162,7 +180,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Resources
  </span>
@@ -194,25 +212,20 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Others
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../FAQ.html">
+   Frequently Asked Questions
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../validator.html">
    BIDS validation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../apps.html">
-   What is a BIDS App?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../faq.html">
-   Frequently Asked Questions
   </a>
  </li>
  <li class="toctree-l1">
@@ -223,6 +236,16 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../contact.html">
    Contact
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../CONTRIBUTING.html">
+   Contributing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../CODE_OF_CONDUCT.html">
+   Code of Conduct
   </a>
  </li>
 </ul>
@@ -529,7 +552,7 @@
             
               <div>
                 
-  <div class="section" id="annotating-a-bids-dataset">
+  <div class="tex2jax_ignore mathjax_ignore section" id="annotating-a-bids-dataset">
 <h1>Annotating a BIDS dataset<a class="headerlink" href="#annotating-a-bids-dataset" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="what-is-annotation">
 <h2>What is annotation?<a class="headerlink" href="#what-is-annotation" title="Permalink to this headline">¶</a></h2>
@@ -546,8 +569,8 @@ This tutorial provides a step-by-step process for data annotation in the BIDS fr
 <h2>Required BIDS annotation files<a class="headerlink" href="#required-bids-annotation-files" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="dataset-sourcing-dataset-description-json">
 <h3>Dataset sourcing (<code class="docutils literal notranslate"><span class="pre">dataset_description.json</span></code>)<a class="headerlink" href="#dataset-sourcing-dataset-description-json" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">dataset_description.json</span></code> is a top-level file that gives details about the
-source of the dataset, funding, and citation information.
+<p><code class="docutils literal notranslate"><span class="pre">dataset_description.json</span></code> is a top-level file that gives details about the source of the dataset,
+funding, and citation information.
 This file does not provide any actual description of the data.</p>
 <blockquote>
 <div><p>You can fill in this blank <a class="reference external" href="https://raw.githubusercontent.com/bids-standard/bids-starter-kit/main/templates/dataset_description.json">dataset description template</a> or use it as a guide.</p>
@@ -558,7 +581,7 @@ This file does not provide any actual description of the data.</p>
 <p><code class="docutils literal notranslate"><span class="pre">README</span></code> file is a top-level text file that gives the actual overview of the dataset.
 A comprehensive <code class="docutils literal notranslate"><span class="pre">README</span></code> is essential for users of your data.</p>
 <blockquote>
-<div><p>You can edit the <a class="reference external" href="https://raw.githubusercontent.com/bids-standard/bids-starter-kit/main/templates/README">README template</a> with the vital information needed for others to analyze your dataset.</p>
+<div><p>You can edit the <a class="reference external" href="https://raw.githubusercontent.com/bids-standard/bids-starter-kit/main/templates/README.MD">README template</a> with the vital information needed for others to analyze your dataset.</p>
 </div></blockquote>
 </div>
 </div>
@@ -660,8 +683,8 @@ and links to helpful guides and tutorials with the details.</p>
 <h3>The event annotation process<a class="headerlink" href="#the-event-annotation-process" title="Permalink to this headline">¶</a></h3>
 <p>The goal of event annotation is to provide the information about events
 needed for effective and correct analysis of the data.</p>
-<p>Ideally most of this information should be in a single <code class="docutils literal notranslate"><span class="pre">events.json</span></code> sidecar
-file located in the root directory of your dataset
+<p>Ideally most of this information should be in a single <code class="docutils literal notranslate"><span class="pre">events.json</span></code> sidecar file
+located in the root directory of your dataset
 where it is easy to find and update.</p>
 <p>An overview of how event annotation works in BIDS as well as tutorials
 about using available online tools to facilitate annotation can be found in the
@@ -717,7 +740,7 @@ outlines a step-by-step process for selecting HED tags during the annotation pro
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">BIDS Derivatives</p>
+            <p class="prev-next-title">Derivatives</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="ieeg.html" title="next page">

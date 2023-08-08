@@ -1,4 +1,4 @@
-# BIDS metadata and file formats
+# Metadata and file formats
 
 Metadata are stored in .json and .tsv files. These files are language-agnostic,
 meaning you can work with them in, for example: Python, Matlab, or R. This page
@@ -300,11 +300,10 @@ Below are ways to read / write TSV files in common languages.
 ### Reading a `.tsv` file:
 
 ```matlab
-readtable([filename],
-          'FileType', 'text',
-          'Delimiter', '\t',
-          'TreatAsEmpty', {'N/A','n/a'}
-          );
+table_content = readtable(filename, ...
+                            'FileType', 'text', ...
+                            'Delimiter', '\t', ...
+                            'TreatAsEmpty', {'N/A','n/a'});
 ```
 
 ### Writing a `.tsv` file:
@@ -312,17 +311,18 @@ readtable([filename],
 #### Matlab
 
 ```matlab
-root_dir = 'MyRootDir';
+root_dir = pwd;
 bidsProject = 'temp';
-bids_particpants_name = ['participants.tsv'];
+mkdir(fullfile(root_dir, bidsProject));
+bids_participants_name = 'participants.tsv';
 
-participant_id = ['sub-01'; 'sub-02']; % onsets in seconds
+participant_id = ['sub-01'; 'sub-02'];
 age = [20 30]';
 sex = ['m';'f'];
 
 t = table(participant_id,age,sex);
-writetable(t, fullfile(root_dir, bidsProject, bids_particpants_name),
-              'FileType', 'text',
+writetable(t, fullfile(root_dir, bidsProject, bids_participants_name), ...
+              'FileType', 'text', ...
               'Delimiter', '\t');
 ```
 
@@ -377,8 +377,8 @@ df.head()
     3         sub-04   F   20           3
     4         sub-05   M   22           4
 
-# Save as a CSV file
-df.to_csv('my_new_file.csv', sep='\t')
+# Save as a .tsv file
+df.to_csv('my_new_file.tsv', sep='\t')
 ```
 
 ## Excel
@@ -399,7 +399,7 @@ packages.
 ### Reading a `.tsv` file:
 
 In this example, we assume the .tsv includes column names (headers), and
-explicitly set column separator (delimitor) to tab ('\t')
+explicitly set column separator (delimiter) to tab ('\t')
 
 ```R
 data = read.table('myFile.tsv', header=TRUE, sep='\t')
